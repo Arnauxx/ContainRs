@@ -25,6 +25,12 @@ public class RegistroController : Controller
     public async Task<IActionResult> CreateAsync(RegistroViewModel form)
     {
         if (!ModelState.IsValid) return View("Index", form);
+        var idade = DateTime.Today.Year - form.Nascimento.Year;
+        if (idade < 18)
+        {
+            ModelState.AddModelError("Nascimento", "Cliente deve ter 18 anos ou mais para se cadastrar.");
+            return View("Index", form);
+        }
 
         var cliente = new Cliente(form.Nome, form.Email, form.CPF)
         {
@@ -35,7 +41,7 @@ public class RegistroController : Controller
             Complemento = form.Complemento,
             Bairro = form.Bairro,
             Municipio = form.Municipio,
-            Estado = form.Estado
+            Estado = form.Estado,
         };
         context.Clientes.Add(cliente);
         await context.SaveChangesAsync();

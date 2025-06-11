@@ -26,4 +26,5 @@ public class RegistroViewModel
     public string? Bairro { get; set; }
     public string? Municipio { get; set; }
     public string? Estado { get; set; }
+    public DateTime Nascimento { get; set; }
 }
