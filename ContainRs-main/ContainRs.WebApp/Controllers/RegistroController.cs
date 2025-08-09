@@ -1,7 +1,7 @@
-﻿using Azure.Core;
-using ContainRs.WebApp.Data;
+﻿using ContainRs.WebApp.Data;
 using ContainRs.WebApp.Models;
-using ContainRs.WebApp.UseCases;
+using ContainRs.Domain.Models;
+using ContainRs.Application.UseCases;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ContainRs.WebApp.Controllers;
