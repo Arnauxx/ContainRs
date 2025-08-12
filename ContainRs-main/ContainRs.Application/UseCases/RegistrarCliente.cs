@@ -6,7 +6,7 @@ namespace ContainRs.Application.UseCases
     public class RegistrarCliente
     {
         private readonly IClienteRepository _clienteRepository;
-        public RegistrarCliente(IClienteRepository clienteRepository, string nome, Email email, string cPF, string? celular, string? cEP, string? rua, string? numero, string? complemento, string? bairro, string? municipio, string? estado)
+        public RegistrarCliente(IClienteRepository clienteRepository, string nome, Email email, string cPF, string? celular, string? cEP, string? rua, string? numero, string? complemento, string? bairro, string? municipio, UnidadeFederativa? estado)
         {
             this._clienteRepository = clienteRepository;
             Nome = nome;
@@ -32,7 +32,7 @@ namespace ContainRs.Application.UseCases
         public string? Complemento { get; }
         public string? Bairro { get; }
         public string? Municipio { get; }
-        public string? Estado { get; }
+        public UnidadeFederativa? Estado { get; }
 
         public async Task<Cliente> ExecutarAsync()
         {

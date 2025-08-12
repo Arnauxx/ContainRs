@@ -34,7 +34,7 @@ namespace ContainRs.WebApp.Controllers
                     request.Complemento,
                     request.Bairro,
                     request.Municipio,
-                    request.Estado
+                    UfStringConverter.From(request.Estado)
                 );
 
 
